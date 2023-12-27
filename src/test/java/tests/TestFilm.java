@@ -11,17 +11,18 @@ public class TestFilm {
 
 
     @Test
-    @Parameters({"uri-people","reg-exp-date"})
-    public void testFilms(String url, String regExp){
+    @Parameters({"uri-people","reg-exp-date","amount"})
+    public void testFilms(String url, String regExp, String amount){
         Film film = methodFilm(url);
+        Integer one = Integer.parseInt(amount);
 
         Assert.assertTrue(film.getRelease_date().matches(regExp));
 
-        Assert.assertTrue(film.getCharacters().size() > 1);
-        Assert.assertTrue(film.getPlanets().size() > 1);
-        Assert.assertTrue(film.getStarships().size() > 1);
-        Assert.assertTrue(film.getVehicles().size() > 1);
-        Assert.assertTrue(film.getSpecies().size() > 1);
+        Assert.assertTrue(film.getCharacters().size() > one);
+        Assert.assertTrue(film.getPlanets().size() > one);
+        Assert.assertTrue(film.getStarships().size() > one);
+        Assert.assertTrue(film.getVehicles().size() > one);
+        Assert.assertTrue(film.getSpecies().size() > one);
 
     }
 
