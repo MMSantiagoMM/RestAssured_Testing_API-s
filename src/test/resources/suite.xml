@@ -1,0 +1,31 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" >
+    <test name="test-people">
+        <parameter name="url-api" value="https://swapi.dev/api/people/2"/>
+        <parameter name="success-status-code" value="200"/>
+        <parameter name="skin-color" value="gold"/>
+        <parameter name="film-size" value="6"/>
+        <classes>
+            <class name="tests.TestPeople"/>
+        </classes>
+    </test>
+    <test name="test-films">
+        <parameter name="uri-people" value="https://swapi.dev/api/people/2"/>
+        <parameter name="reg-exp-date" value="\d{4}-\d{2}-\d{2}"/>
+        <classes>
+            <class name="tests.TestFilm"/>
+            <class name="tests.TestFilmSeven"/>
+        </classes>
+    </test>
+    <test name="test-planets">
+        <parameter name="uri-people" value="https://swapi.dev/api/people/2"/>
+        <parameter name="gravity" value="1 standard"/>
+        <parameter name="terrains" value="desert"/>
+        <classes>
+            <class name="tests.TestPlanet"/>
+            <class name="tests.TestPlanetUrl"/>
+        </classes>
+    </test>
+
+</suite>
