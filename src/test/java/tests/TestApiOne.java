@@ -1,38 +1,39 @@
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
+package tests;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.example.pojos.People;
+import pojos.People;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.arrayWithSize;
-import static org.hamcrest.Matchers.equalTo;
 
-public class TestApi {
+public class TestApiOne {
 
 
 
     @Test
-    public void testApi() throws IOException {
+    public void testApiOne() throws IOException {
+
+
+        Response response = RestAssured.get("https://swapi.dev/api/people/2");
+        ObjectMapper objectMapper = new ObjectMapper();
+        SoftAssert softAssert = new SoftAssert();
+        String json = response.getBody().asString();
+        People people = objectMapper.readValue(json,People.class);
+
+
+        softAssert.assertEquals(response.getStatusCode(),200);
+        softAssert.assertEquals(people.getSkin_color(),"gold");
+        softAssert.assertEquals(people.getFilms().size(),6);
+
 
         /*
-        Response response = RestAssured.get("https://swapi.dev/api/people/1");
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        String json = response.getBody().asString();
-
-        try {
-            People people = objectMapper.readValue(json,People.class);
-            System.out.println(people.getName());
-        }catch (JsonProcessingException e){
-            e.printStackTrace();
-        }*/
 
         given()
                 .when()
@@ -43,7 +44,7 @@ public class TestApi {
 
 
 
-
+*/
 
 
 
