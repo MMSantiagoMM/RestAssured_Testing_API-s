@@ -10,10 +10,10 @@ import static utils.PeopleMethod.methodPeople;
 public class FilmMethod {
 
     public static Film methodFilm(String uri){
-        Response responsePeople = RestAssured.when().get(uri);
-        String uriFilms = methodPeople(responsePeople,uri).getFilms().get(5);
-        Response responseFilms = RestAssured.when().get(uriFilms);
-        return new JsonPath(responseFilms.asString()).getObject("", Film.class);
+        Response responsePeople2 = RestAssured.when().get(uri);
+        String uriSecondFilm = methodPeople(responsePeople2,uri).getFilms().get(1);
+        Response responseFilm2 = RestAssured.when().get(uriSecondFilm);
+        return new JsonPath(responseFilm2.asString()).getObject("", Film.class);
     }
 
 

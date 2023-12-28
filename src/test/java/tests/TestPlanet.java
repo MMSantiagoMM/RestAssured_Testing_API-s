@@ -4,9 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pojos.Planet;
-import utils.PlanetMethod;
 
-import static utils.PlanetMethod.getFilm;
+import static utils.PlanetMethod.getFilm2;
 import static utils.PlanetMethod.methodPlanet;
 
 public class TestPlanet {
@@ -21,7 +20,7 @@ public class TestPlanet {
         Assert.assertEquals(planet.getGravity(),gravity);
         Assert.assertEquals(planet.getTerrain(),terrains);
 
-        Assert.assertEquals(planet.getUrl(),getFilm(uri));
+        Assert.assertEquals(planet.getUrl(), getFilm2(uri));
 
 
     }

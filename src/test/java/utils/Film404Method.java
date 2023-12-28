@@ -9,7 +9,7 @@ public class Film404Method {
 
     public static Response methodGetFilm(String uri){
 
-        return RestAssured.given().when().get("https://swapi.dev/api/films/7");
+        return RestAssured.given().when().get(uri);
     }
 
 

@@ -20,8 +20,8 @@
     </test>
     <test name="test-planets">
         <parameter name="uri-people" value="https://swapi.dev/api/people/2"/>
-        <parameter name="gravity" value="1 standard"/>
-        <parameter name="terrains" value="desert"/>
+        <parameter name="gravity" value="1.1 standard"/>
+        <parameter name="terrains" value="tundra, ice caves, mountain ranges"/>
         <classes>
             <class name="tests.TestPlanet"/>
             <class name="tests.TestPlanetUrl"/>
@@ -29,8 +29,9 @@
     </test>
     <test name="film-seven">
         <parameter name="uri-film" value="https://swapi.dev/api/films/7"/>
+        <parameter name="not-found-status-code" value="404"/>
         <classes>
-            <class name="tests.TestFilmSeven"/>
+            <class name="tests.TestFilmSeven404"/>
         </classes>
     </test>
 

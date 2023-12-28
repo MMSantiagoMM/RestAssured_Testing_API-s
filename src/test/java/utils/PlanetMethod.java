@@ -11,12 +11,12 @@ public class PlanetMethod {
 
     public static Planet methodPlanet(String uri){
 
-        Response responsePlanets = RestAssured.when().get(getFilm(uri));
+        Response responseFirstPlanet = RestAssured.when().get(getFilm2(uri));
 
-        return new JsonPath(responsePlanets.asString()).getObject("", Planet.class);
+        return new JsonPath(responseFirstPlanet.asString()).getObject("", Planet.class);
     }
 
-    public static String getFilm(String uri){
+    public static String getFilm2(String uri){
         return methodFilm(uri).getPlanets().get(0);
     }
 
