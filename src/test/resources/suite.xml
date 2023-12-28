@@ -16,7 +16,6 @@
         <parameter name="amount" value="1"/>
         <classes>
             <class name="tests.TestFilm"/>
-            <class name="tests.TestFilmSeven"/>
         </classes>
     </test>
     <test name="test-planets">
@@ -26,6 +25,12 @@
         <classes>
             <class name="tests.TestPlanet"/>
             <class name="tests.TestPlanetUrl"/>
+        </classes>
+    </test>
+    <test name="film-seven">
+        <parameter name="uri-film" value="https://swapi.dev/api/films/7"/>
+        <classes>
+            <class name="tests.TestFilmSeven"/>
         </classes>
     </test>
 
