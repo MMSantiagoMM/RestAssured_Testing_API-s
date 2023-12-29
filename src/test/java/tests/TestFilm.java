@@ -1,28 +1,25 @@
 package tests;
 
-import org.testng.Assert;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pojos.Film;
 
+import static utils.BaseTest.validateFormatDate;
+import static utils.BaseTest.validateSizeMoreThanOne;
 import static utils.FilmMethod.methodFilm;
 
 public class TestFilm {
 
 
     @Test
-    @Parameters({"uri-people","reg-exp-date","amount"})
-    public void testFilms(String url, String regExp, String amount){
-        Film film = methodFilm(url);
-        Integer one = Integer.parseInt(amount);
+    public void testFilms(){
+        Film film = methodFilm();
 
-        Assert.assertTrue(film.getRelease_date().matches(regExp));
-
-        Assert.assertTrue(film.getCharacters().size() > one);
-        Assert.assertTrue(film.getPlanets().size() > one);
-        Assert.assertTrue(film.getStarships().size() > one);
-        Assert.assertTrue(film.getVehicles().size() > one);
-        Assert.assertTrue(film.getSpecies().size() > one);
+        validateFormatDate(film.getRelease_date());
+        validateSizeMoreThanOne(film.getCharacters().size());
+        validateSizeMoreThanOne(film.getPlanets().size());
+        validateSizeMoreThanOne(film.getStarships().size());
+        validateSizeMoreThanOne(film.getVehicles().size());
+        validateSizeMoreThanOne(film.getSpecies().size());
 
     }
 
